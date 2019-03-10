@@ -51,5 +51,23 @@ namespace 备忘录模式
             this.atk = 0;
             this.def = 0;
         }
+
+        /// <summary>
+        /// 保存角色状态
+        /// </summary>
+        public RoleStateMemento SaveState()
+        {
+            return (new RoleStateMemento(vit, atk, def));
+        }
+
+        /// <summary>
+        /// 恢复角色状态
+        /// </summary>
+        public void RecoveryState(RoleStateMemento memento)
+        {
+            this.vit = memento.Vitality;
+            this.atk = memento.Attack;
+            this.def = memento.Defense;
+        }
     }
 }
